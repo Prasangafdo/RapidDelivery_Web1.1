@@ -23,7 +23,7 @@ header("location: home.php");
   <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>Cusromer <span>Login</span></div>
+			<div>Customer<span> <br/>Login</span></div>
 		</div>
 		<br>
 		<div class="login">
