@@ -23,11 +23,12 @@ header("location: home.php");
   <div class="body"></div>
 		<div class="grad"></div>
 		<div class="header">
-			<div>Admin <span>Login</span></div>
+			<div>Cusromer <span>Login</span></div>
 		</div>
 		<br>
 		<div class="login">
         <form action="" method="post">
+
 <br/>
         		<input id="username" name="username" placeholder="username" type="text"><br>
 				<input id="password" name="password" placeholder="**********" type="password"><br>
