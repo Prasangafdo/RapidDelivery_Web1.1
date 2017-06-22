@@ -162,8 +162,10 @@ Additionally, other than giving features to the employees, Rapid Delivery has be
       var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 7.8731, lng: 80.7718},
-          zoom: 8
+          //center: {lat: 7.8731, lng: 80.7718},
+		  center: {lat: 7.1824795, lng: 79.9043215},
+          //zoom: 8
+		  zoom:15
         });
       }
     </script>
