@@ -50,6 +50,18 @@ html {
     text-align: center;
     background: #eee;
 }
+
+.track-section {
+    height: 100%;
+    padding-top: 150px;
+    text-align: center;
+    background: #eee;
+}
+.map-Border{
+	height: 550px;
+    text-align: center;
+    background: #eee;
+}
 .userName{
 	text-align:right;
 	

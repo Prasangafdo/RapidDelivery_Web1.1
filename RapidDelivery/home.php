@@ -10,7 +10,24 @@
     <meta name="author" content="">
 
     <title>Rapid Delivery</title>
-
+    
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    
+    
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -52,6 +69,9 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                    	<a class="page-scroll" href="#track">Tracking</a>
                     </li>
                 </ul>
                 <ul>
@@ -125,6 +145,31 @@ Additionally, other than giving features to the employees, Rapid Delivery has be
                 </div>
             </div>
         </div>
+    </section>
+    
+    <!-- Tracking Section -->
+    <section id="track" class="track-section">
+        <div class="container">
+            <div class="row">
+                <div class="">
+                    <h1>Tracking</h1>
+                     </div>
+             </div>
+               
+       <div class="map-Border">
+        <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 7.8731, lng: 80.7718},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPtg5NhcYerzCS0sHvWAff9XqUipqY8LU&callback=initMap"
+    async defer></script>
+       </div>
     </section>
 
     <!-- jQuery -->
