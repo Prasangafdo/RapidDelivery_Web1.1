@@ -1,5 +1,5 @@
 <?php
-include('login.php'); // Includes Login Script
+include('loginAdmin.php'); // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
 header("location: home.php");
