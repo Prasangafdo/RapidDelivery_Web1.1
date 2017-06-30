@@ -1,14 +1,14 @@
 <?php
 
 require 'connect.php';
-$uname = $_POST['username'];
-$pss = $_POST['password'];
-$email = $_POST['email'];
+$uname = $_POST['uname'];
+$pss = $_POST['pss'];
+//$email = $_POST['email'];
 $address = $_POST['address'];
 $telephone = $_POST['telephone'];
-$sql = "INSERT INTO courier (id, username, password, parcel_ID) 
-VALUES ('1','prasangacourier', '1111', '2')";
-
+$sql = "INSERT INTO courier (username, password, parcel_ID, address, telephone) 
+VALUES ('$uname', 'pss', '0', '$address', '$telephone')";
+//0 is for no parcels
 if (mysqli_query($con, $sql)) {
     echo "New record created successfully";
 } else {

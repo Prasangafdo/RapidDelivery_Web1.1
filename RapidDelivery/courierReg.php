@@ -16,7 +16,7 @@
 		</div>
 		<br>
 		<div class="login">
-        <form action="insertcustomer.php" method="post">
+        <form action="insertcourier.php" method="post">
 <br/>
         		<input id="username" name="uname" placeholder="username" type="text">
 				<input id="password" name="pss" placeholder="**********" type="password"><br/>
