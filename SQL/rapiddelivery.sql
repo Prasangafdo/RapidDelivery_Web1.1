@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2017 at 06:55 PM
+-- Generation Time: Jul 04, 2017 at 03:09 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `rapiddeliverynew`
+-- Database: `rapiddelivery`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,11 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `surname`, `age`, `username`, `password`) VALUES
-(1, 'Prasanga', 'Fernando', '21', 'usr', 'pss');
+(12, 'Prasanga', 'Fernando', '21', 'usr', 'pss'),
+(14, 'Prasanga', 'Fernando', '21', 'prasangafdo', '12345678'),
+(15, 'Prasanga', 'Fernando', '18', 'prasangafdo', '1234@7'),
+(16, 'Prasanga', 'Fernando', '18', 'prasangafdo', '1234@7'),
+(17, 'prasanga', 'Fernando', '19', 'fdo', 'passwordtst');
 
 -- --------------------------------------------------------
 
@@ -54,13 +58,6 @@ CREATE TABLE `courier` (
   `password` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parcel_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `courier`
---
-
-INSERT INTO `courier` (`id`, `username`, `password`, `parcel_ID`) VALUES
-(1, 'prasangacourier', '1111', 2);
 
 -- --------------------------------------------------------
 
@@ -82,8 +79,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `username`, `password`, `email`, `address`, `tel`) VALUES
-(1, 'Customer', '1111', 'customer@gmail.com', 'customer address', '11223344'),
-(8, 'Prasanga', 'aaaa', 'prasangafdz@gmail.com', 'addr1', '0776655423');
+(1, 'Customer', '1111', 'customer@gmail.com', 'customer address', '11223344');
 
 -- --------------------------------------------------------
 
@@ -148,28 +144,6 @@ INSERT INTO `location` (`Latitude`, `Longitude`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `id` int(10) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`id`, `username`, `password`) VALUES
-(1, 'prasanga', '1111'),
-(2, 'newUser', 'password'),
-(3, 'newUser', 'password'),
-(4, 'newUser', 'password');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `parcel`
 --
 
@@ -213,7 +187,8 @@ ALTER TABLE `admin`
 -- Indexes for table `courier`
 --
 ALTER TABLE `courier`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `parcel_ID` (`parcel_ID`);
 
 --
 -- Indexes for table `customer`
@@ -229,16 +204,12 @@ ALTER TABLE `employee_data`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `parcel`
 --
 ALTER TABLE `parcel`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ref_courrier_id_idx` (`courrier_id`),
+  ADD KEY `ref_customer_id_idx` (`customer_id`);
 
 --
 -- Indexes for table `staff`
@@ -255,27 +226,22 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `courier`
 --
 ALTER TABLE `courier`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `employee_data`
 --
 ALTER TABLE `employee_data`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `parcel`
 --
@@ -286,6 +252,23 @@ ALTER TABLE `parcel`
 --
 ALTER TABLE `staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `courier`
+--
+ALTER TABLE `courier`
+  ADD CONSTRAINT `courier_ibfk_1` FOREIGN KEY (`parcel_ID`) REFERENCES `parcel` (`id`);
+
+--
+-- Constraints for table `parcel`
+--
+ALTER TABLE `parcel`
+  ADD CONSTRAINT `ref_courrier_id` FOREIGN KEY (`courrier_id`) REFERENCES `courier` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `ref_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
