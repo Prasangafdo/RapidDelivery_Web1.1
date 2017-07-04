@@ -36,6 +36,10 @@ header("location: home.php");
                 <br/>
                 <span class="credentials_failed"><?php echo $error; ?></span>
 				</form>
+                
+                <form action="customerReg.php" method="post">
+                <input name="submit" type="submit" value="Register">
+                </form>
 		</div>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

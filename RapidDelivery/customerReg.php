@@ -16,7 +16,7 @@
 		</div>
 		<br>
 		<div class="login">
-           <form action="insertcustomer.php" method="post">
+           <form action="insertCustomer.php" method="post">
 <br/>
         		<input id="username" name="uname" placeholder="username" type="text">
 				<input id="passss" name="pss" placeholder="**********" type="password"><br/>
@@ -25,9 +25,7 @@
                 <input id="telephone" name="telephone" placeholder="telephone" type="text"><br/>
 				<input name="submit" type="submit" value="Register">
                                
-				</form>
-
-                
+				</form>      
 </body>
 
 

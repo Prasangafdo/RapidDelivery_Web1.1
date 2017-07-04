@@ -104,8 +104,13 @@
                     	<p>&nbsp;</p>
                    <!-- <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a> -->
                 </div>
+                
             </div>
         </div>
+        <form action="addParcel.php">
+         <input type="submit" name="submit" id="submit" value="Place a courier" >
+         </form>
+         
     </section>
 
     <!-- About Section -->
